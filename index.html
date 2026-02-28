@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Techie — Intelligent Digital Tools for the Wellness World</title>
+<meta name="description" content="We build intelligent digital tools for the wellness and retreat world. Beautiful websites, AI automation, and purposeful technology from the West of Ireland.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='%23E91E63' stroke-width='8'/><line x1='50' y1='15' x2='50' y2='45' stroke='%23E91E63' stroke-width='8' stroke-linecap='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --pink: #E91E63;
+  --pink-light: #FF4081;
+  --pink-soft: #FCE4EC;
+  --coral: #FF6B6B;
+  --orange: #FF9800;
+  --gold: #FFB74D;
+  --peach: #FFF3E0;
+  --cream: #FFFAF5;
+  --warm-white: #FFFCF9;
+  --blush: #FDE8E8;
+  --text: #3D2C2E;
+  --text-light: #6D5D5F;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'Inter', -apple-system, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  color: var(--text);
+  background: var(--warm-white);
+  line-height: 1.7;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Animations ---- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in.delay-1 { transition-delay: 0.1s; }
+.fade-in.delay-2 { transition-delay: 0.25s; }
+.fade-in.delay-3 { transition-delay: 0.4s; }
+
+/* ---- Nav ---- */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+nav.scrolled {
+  background: rgba(255, 252, 249, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(233, 30, 99, 0.08);
+}
+.logo-img {
+  height: 36px;
+  width: auto;
+}
+
+.logo {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+}
+.logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  margin: 0 0.1rem;
+}
+.logo-icon::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--pink);
+  border-radius: 50%;
+  position: absolute;
+}
+.logo-icon::after {
+  content: '';
+  width: 3px;
+  height: 10px;
+  background: var(--pink);
+  border-radius: 2px;
+  position: absolute;
+  top: 2px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+nav a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+nav a:hover { color: var(--pink); }
+
+/* ---- Hero ---- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(175deg, var(--warm-white) 0%, #FFE8EC 30%, #FFDAB9 55%, #FFF0E6 75%, var(--cream) 100%);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0; right: 0;
+  height: 120px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath fill='%23FFFCF9' d='M0,64 C360,110 720,20 1080,64 C1260,86 1380,96 1440,96 L1440,120 L0,120 Z'/%3E%3C/svg%3E") no-repeat bottom center;
+  background-size: cover;
+}
+/* Floating circles */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  animation: float 20s ease-in-out infinite;
+}
+.hero-orb:nth-child(1) {
+  width: 400px; height: 400px;
+  background: var(--pink);
+  opacity: 0.08;
+  top: -100px; right: -100px;
+  animation-delay: -5s;
+}
+.hero-orb:nth-child(2) {
+  width: 250px; height: 250px;
+  background: var(--orange);
+  opacity: 0.1;
+  bottom: 10%; left: -60px;
+  animation-delay: -10s;
+  animation-duration: 25s;
+}
+.hero-orb:nth-child(3) {
+  width: 180px; height: 180px;
+  background: var(--coral);
+  opacity: 0.09;
+  top: 20%; left: 15%;
+  animation-delay: -3s;
+  animation-duration: 18s;
+}
+.hero-orb:nth-child(4) {
+  width: 120px; height: 120px;
+  background: var(--gold);
+  opacity: 0.12;
+  top: 60%; right: 10%;
+  animation-delay: -7s;
+  animation-duration: 22s;
+}
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, -30px) scale(1.05); }
+  66% { transform: translate(-15px, 15px) scale(0.97); }
+}
+
+.hero-content { position: relative; z-index: 1; max-width: 720px; }
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+  color: var(--text);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+.hero h1 .highlight {
+  color: var(--pink);
+}
+.hero .tagline {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  color: var(--pink);
+  margin-bottom: 1.5rem;
+  opacity: 0.85;
+}
+.hero p {
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  color: var(--text-light);
+  max-width: 540px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.8;
+}
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2.2rem;
+  background: var(--pink);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+  box-shadow: 0 4px 16px rgba(233, 30, 99, 0.25);
+}
+.btn:hover {
+  background: var(--pink-light);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(233, 30, 99, 0.3);
+}
+
+/* ---- Section defaults ---- */
+section { padding: 6rem 2rem; }
+.container { max-width: 1080px; margin: 0 auto; }
+.section-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--pink);
+  margin-bottom: 0.75rem;
+}
+.section-heading {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: var(--text);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+.section-sub {
+  color: var(--text-light);
+  max-width: 560px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* ---- Services ---- */
+.services { background: var(--warm-white); }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+.service-card {
+  background: var(--cream);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  border: 1px solid rgba(233, 30, 99, 0.06);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(233, 30, 99, 0.1);
+  border-color: rgba(233, 30, 99, 0.15);
+}
+.service-icon {
+  width: 52px; height: 52px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--pink), var(--coral));
+}
+.service-icon svg { width: 26px; height: 26px; }
+.service-card h3 {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+.service-card p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+/* ---- About ---- */
+.about {
+  background: linear-gradient(180deg, var(--warm-white) 0%, var(--peach) 100%);
+}
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.about-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.about-visual {
+  aspect-ratio: 1;
+  max-width: 380px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--pink), var(--coral), var(--orange));
+  position: relative;
+  overflow: hidden;
+}
+.about-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Ccircle cx='200' cy='380' r='180' fill='none' stroke='rgba(255,255,255,0.15)' stroke-width='1'/%3E%3Ccircle cx='200' cy='380' r='140' fill='none' stroke='rgba(255,255,255,0.12)' stroke-width='1'/%3E%3Ccircle cx='200' cy='380' r='100' fill='none' stroke='rgba(255,255,255,0.09)' stroke-width='1'/%3E%3Ccircle cx='200' cy='380' r='60' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3C/svg%3E") no-repeat center;
+  background-size: cover;
+}
+.about-visual::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(255, 183, 77, 0.3), transparent);
+}
+.about-text h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  color: var(--text);
+  margin-bottom: 1.25rem;
+}
+.about-text p {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.about-text p:last-child { margin-bottom: 0; }
+
+/* ---- CTA ---- */
+.cta {
+  background: linear-gradient(135deg, var(--pink), #D81B60, var(--coral));
+  text-align: center;
+  padding: 5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute;
+  width: 300px; height: 300px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+  top: -100px; right: -50px;
+}
+.cta::after {
+  content: '';
+  position: absolute;
+  width: 200px; height: 200px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 50%;
+  bottom: -80px; left: -30px;
+}
+.cta h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: #fff;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.cta p {
+  color: rgba(255,255,255,0.85);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+  position: relative;
+}
+.btn-light {
+  display: inline-block;
+  padding: 0.9rem 2.2rem;
+  background: #fff;
+  color: var(--pink);
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+.btn-light:hover {
+  background: var(--cream);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+}
+
+/* ---- Footer ---- */
+footer {
+  background: var(--text);
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  padding: 2.5rem 2rem;
+  font-size: 0.85rem;
+}
+footer a {
+  color: var(--gold);
+  text-decoration: none;
+}
+footer a:hover { text-decoration: underline; }
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  nav ul { display: none; }
+  section { padding: 4rem 1.5rem; }
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .about-visual {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .services-grid { gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="logo"><img src="logo-original.png" alt="Happy Techie" class="logo-img"></a>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-orb"></div>
+  <div class="hero-orb"></div>
+  <div class="hero-orb"></div>
+  <div class="hero-orb"></div>
+  <div class="hero-content">
+    <h1 class="fade-in">Intelligent digital tools for the <span class="highlight">wellness world</span></h1>
+    <p class="tagline fade-in delay-1">Techniques to Thrive</p>
+    <p class="fade-in delay-1">We help retreat centres and wellness practitioners build beautiful, purposeful technology — with a human touch and a quiet bit of AI.</p>
+    <a href="#contact" class="btn fade-in delay-2">Let's talk</a>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <p class="section-label fade-in">What we do</p>
+    <h2 class="section-heading fade-in">Three ways we can help</h2>
+    <p class="section-sub fade-in">Technology should feel like a deep breath, not a headache. We keep things simple, beautiful, and grounded.</p>
+
+    <div class="services-grid">
+      <div class="service-card fade-in delay-1">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M3 9h18M9 21V9"/>
+          </svg>
+        </div>
+        <h3>Build</h3>
+        <p>Beautiful websites, booking systems, and online course platforms. Designed for how your clients actually think. Clean, fast, and a joy to use.</p>
+      </div>
+
+      <div class="service-card fade-in delay-2">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/>
+            <path d="M16 14H8a4 4 0 0 0-4 4v2h16v-2a4 4 0 0 0-4-4z"/>
+            <circle cx="19" cy="5" r="3"/>
+          </svg>
+        </div>
+        <h3>Automate</h3>
+        <p>AI assistants that handle client intake, booking, follow-up, and content. Your retreat centre gets a concierge that never sleeps — and never feels robotic.</p>
+      </div>
+
+      <div class="service-card fade-in delay-3">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
+        </div>
+        <h3>Transform</h3>
+        <p>Custom AI tools for meaning, growth, and deeper engagement. Including PurposePal — our own platform for people doing the inner work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-visual fade-in"><img src="mike-profile.jpg" alt="Mike Hughes" class="about-photo"></div>
+      <div class="about-text">
+        <p class="section-label fade-in">About</p>
+        <h2 class="fade-in">Built by someone who gets both worlds</h2>
+        <p class="fade-in delay-1">I'm Mike Hughes. I live near Lahinch on the west coast of Ireland. I surf. I meditate. I've spent twenty years building enterprise software — and just as long sitting on a cushion.</p>
+        <p class="fade-in delay-2">By day, I lead national software delivery at Corlann, supporting over 6,000 staff in disability services. By early morning and evening, I build tools for the wellness world — because I believe this space deserves technology made with real care.</p>
+        <p class="fade-in delay-3">My wife is a somatic practitioner and meditation teacher. This isn't an abstract market to me. It's my life. Happy Techie exists because the people doing the most meaningful work often have the worst websites.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="container">
+    <h2 class="fade-in">Ready for something better?</h2>
+    <p class="fade-in delay-1">No pitch decks. No jargon. Just a conversation about what you need and whether we're the right fit.</p>
+    <a href="mailto:mike@happytech.ie" class="btn-light fade-in delay-2">mike@happytech.ie</a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Happy Techie · Lahinch, Co. Clare, Ireland · <a href="mailto:mike@happytech.ie">mike@happytech.ie</a> · <a href="https://www.linkedin.com/in/mikehug/" target="_blank" rel="noopener" title="Mike Hughes on LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-bottom:2px"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></p>
+</footer>
+
+<script>
+// Scroll-triggered fade-in
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+// Nav background on scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+</script>
+
+</body>
+</html>
