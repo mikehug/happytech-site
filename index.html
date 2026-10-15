@@ -19,7 +19,7 @@
 <meta name="twitter:description" content="For curious people who reckon there’s more to life than the daily grind.">
 <style>
 * { box-sizing: border-box; }
-:root { --ink:#282b26; --muted:#555a50; --paper:#fffcf5; --pink:#bd164d; --gold:#ffc15b; --green:#253e35; --line:#d9d8cc; --sans:'Inter',system-ui,sans-serif; --serif:'DM Serif Display',Georgia,serif; }
+:root { --ink:#29262b; --muted:#625b62; --paper:#fffcfa; --pink:#bd164d; --accent:#ffb5cc; --dark:#29262b; --line:#e4dade; --sans:'Inter',system-ui,sans-serif; --serif:'DM Serif Display',Georgia,serif; }
 html { scroll-behavior:smooth; }
 body { margin:0; background:var(--paper); color:var(--ink); font:400 1rem/1.7 var(--sans); }
 h1,h2,h3,p { margin:0; } a { color:inherit; text-underline-offset:5px; } img { max-width:100%; display:block; }
@@ -45,40 +45,38 @@ h1 span { display:block; color:var(--pink); }
 .btn { display:inline-flex; align-items:center; justify-content:center; gap:25px; padding:15px 23px; background:var(--pink); color:white; text-decoration:none; font-weight:600; border:2px solid var(--pink); border-radius:4px; transition:transform .2s,background .2s; }
 .btn:hover { background:#98113d; border-color:#98113d; transform:translateY(-2px); }
 .secondary { font-size:.9rem; font-weight:600; }
-.field-note { background:#f4ebd6; padding:30px; border:1px solid #c7baa0; box-shadow:10px 10px 0 #e8dfcd; transform:rotate(2deg); }
-.note-top { display:flex; justify-content:space-between; font: .7rem ui-monospace,monospace; text-transform:uppercase; letter-spacing:.08em; }
-.route { width:100%; height:auto; display:block; margin:22px 0; }
-.field-note h2 { font-family:var(--serif); font-size:2rem; line-height:1.15; font-weight:400; }
-.field-note p { margin-top:12px; font-size:.9rem; }
-.motto { background:var(--gold); padding:20px 24px; text-align:center; font-weight:600; font-size:clamp(.85rem,2vw,1rem); border-block:1px solid var(--ink); }
-.lab { background:var(--green); color:var(--paper); }
-.lab .label { color:var(--gold); }
+.signal-art { margin:0; position:relative; }
+.signal-art svg { width:100%; height:auto; display:block; overflow:visible; }
+.signal-art figcaption { text-align:center; font:.7rem ui-monospace,monospace; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-top:12px; }
+.motto { background:var(--paper); color:var(--pink); padding:20px 24px; text-align:center; font-weight:600; font-size:clamp(.85rem,2vw,1rem); border-block:1px solid var(--line); }
+.lab { background:var(--dark); color:var(--paper); }
+.lab .label { color:var(--accent); }
 h2 { font-size:clamp(2.1rem,4.5vw,3.6rem); line-height:1.12; letter-spacing:-.045em; }
 .lab-intro { display:grid; gap:25px; }
-.lab-copy p { color:#e2e8de; margin-bottom:16px; }
+.lab-copy p { color:#eee4e9; margin-bottom:16px; }
 .lab-copy .lead { font-size:1.15rem; color:white; }
-.lab-status { border-left:3px solid var(--gold); padding-left:18px; margin-top:26px; font-size:.9rem; }
+.lab-status { border-left:3px solid var(--accent); padding-left:18px; margin-top:26px; font-size:.9rem; }
 .areas { margin-top:48px; display:grid; grid-template-columns:1fr; }
-.area { padding:27px 0; border-top:1px solid #62746a; display:grid; grid-template-columns:38px 1fr; gap:12px; }
-.area-num { color:var(--gold); font:.8rem ui-monospace,monospace; padding-top:8px; }
-.area h3 { font-size:1.3rem; letter-spacing:-.03em; margin-bottom:10px; }.area p { color:#e2e8de; font-size:.95rem; max-width:430px; }
-.lab-bottom { margin-top:25px; color:var(--gold); font-size:.9rem; }
-.quests { background:#f5eddc; }
+.area { padding:27px 0; border-top:1px solid #62565e; display:grid; grid-template-columns:38px 1fr; gap:12px; }
+.area-num { color:var(--accent); font:.8rem ui-monospace,monospace; padding-top:8px; }
+.area h3 { font-size:1.3rem; letter-spacing:-.03em; margin-bottom:10px; }.area p { color:#eee4e9; font-size:.95rem; max-width:430px; }
+.lab-bottom { margin-top:25px; color:var(--accent); font-size:.9rem; }
+.quests { background:#faf1f4; }
 .quests-intro { max-width:630px; }.quests .label { color:var(--pink); }.quests-intro p:last-child { color:var(--muted); margin-top:22px; }
 .quest-list { list-style:none; padding:0; margin:36px 0 0; counter-reset:quest; }
-.quest-list li { counter-increment:quest; display:grid; grid-template-columns:42px 1fr auto; align-items:center; gap:16px; padding:22px 0; border-top:1px solid #c9c4b5; }
+.quest-list li { counter-increment:quest; display:grid; grid-template-columns:42px 1fr auto; align-items:center; gap:16px; padding:22px 0; border-top:1px solid #e1d3da; }
 .quest-list li::before { content:'0' counter(quest); font:.8rem ui-monospace,monospace; color:var(--pink); }
 .quest-list strong { font-size:1.05rem; }.quest-list p { color:var(--muted); font-size:.92rem; margin-top:4px; }
-.quest-tag { font:.68rem ui-monospace,monospace; text-transform:uppercase; border:1px solid #b9b5a8; border-radius:30px; padding:5px 10px; white-space:nowrap; }
+.quest-tag { font:.68rem ui-monospace,monospace; text-transform:uppercase; border:1px solid #d2bec8; border-radius:30px; padding:5px 10px; white-space:nowrap; }
 .about-inner { display:grid; gap:40px; align-items:center; }
-.portrait { margin:0; max-width:390px; }.portrait img { width:100%; aspect-ratio:1; object-fit:cover; border-radius:6px; box-shadow:-12px 12px 0 var(--gold); }.portrait figcaption { margin-top:25px; font:.72rem ui-monospace,monospace; color:var(--muted); }
+.portrait { margin:0; max-width:390px; }.portrait img { width:100%; aspect-ratio:1; object-fit:cover; border-radius:6px; box-shadow:-12px 12px 0 #f5dce5; }.portrait figcaption { margin-top:25px; font:.72rem ui-monospace,monospace; color:var(--muted); }
 .about .label { color:var(--pink); }.about h2 { margin-bottom:24px; }.about-text>p:not(.label) { color:var(--muted); margin-top:16px; }
 .contact { background:var(--pink); color:white; }
-.contact-inner { display:grid; gap:30px; align-items:center; }.contact p:not(.label) { margin-top:22px; max-width:600px; }.contact .btn { background:var(--paper); color:var(--pink); border-color:var(--paper); white-space:nowrap; }.contact .btn:hover { background:var(--gold); border-color:var(--gold); }.contact a:focus-visible { outline-color:var(--gold); }.contact-address { display:block; margin-top:15px; font-size:.85rem; text-align:center; }
+.contact-inner { display:grid; gap:30px; align-items:center; }.contact p:not(.label) { margin-top:22px; max-width:600px; }.contact .btn { background:var(--paper); color:var(--pink); border-color:var(--paper); white-space:nowrap; }.contact .btn:hover { background:var(--accent); border-color:var(--accent); }.contact a:focus-visible { outline-color:var(--accent); }.contact-address { display:block; margin-top:15px; font-size:.85rem; text-align:center; }
 footer { padding:32px 0; font-size:.8rem; color:var(--muted); } .footer-inner { display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; }
 @media(min-width:760px) { .hero-grid { grid-template-columns:1.65fr 1fr; }.lab-intro { grid-template-columns:1fr 1fr; gap:60px; }.areas { grid-template-columns:1fr 1fr; column-gap:48px; }.about-inner { grid-template-columns:.85fr 1.15fr; gap:80px; }.contact-inner { grid-template-columns:1fr auto; } }
-@media(max-width:759px) { section { padding-block:58px; }.hero { padding-block:46px 50px; }.hero-grid { gap:40px; }.field-note { transform:none; max-width:430px; }.route { max-height:170px; }.nav-inner { min-height:72px; gap:15px; }.logo-img { width:140px; }nav ul { gap:18px; }nav .about-nav { display:none; }nav a { font-size:.75rem; }.quest-tag { display:none; }.quest-list li { grid-template-columns:30px 1fr; }.portrait { max-width:310px; margin-left:12px; }.contact .btn { width:100%; }.contact-address { text-align:left; } }
-@media(max-width:380px) { .container { width:calc(100% - 36px); }.logo-img { width:120px; }nav ul { gap:12px; }.nav-contact { font-size:.7rem; }h1 { font-size:2.85rem; }.btn { padding-inline:18px; }.field-note { padding:23px; } }
+@media(max-width:759px) { section { padding-block:58px; }.hero { padding-block:46px 50px; }.hero-grid { gap:40px; }.signal-art { width:min(100%,300px); margin-inline:auto; }.nav-inner { min-height:72px; gap:15px; }.logo-img { width:140px; }nav ul { gap:18px; }nav .about-nav { display:none; }nav a { font-size:.75rem; }.quest-tag { display:none; }.quest-list li { grid-template-columns:30px 1fr; }.portrait { max-width:310px; margin-left:12px; }.contact .btn { width:100%; }.contact-address { text-align:left; } }
+@media(max-width:380px) { .container { width:calc(100% - 36px); }.logo-img { width:120px; }nav ul { gap:12px; }.nav-contact { font-size:.7rem; }h1 { font-size:2.85rem; }.btn { padding-inline:18px; } }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; }*,*::before,*::after { transition:none !important; animation:none !important; } }
 </style>
 </head>
@@ -95,17 +93,24 @@ footer { padding:32px 0; font-size:.8rem; color:var(--muted); } .footer-inner { 
 <p class="hero-sub">Explore new tech. Discover what makes you tick. Get out and do something interesting.</p>
 <p class="audience">For curious people who reckon there’s more to life than the daily grind.</p>
 <div class="actions"><a class="btn" href="mailto:mike@happytech.ie">Help shape the Lab <span aria-hidden="true">↗</span></a><a class="secondary" href="#lab">Explore the Lab <span aria-hidden="true">↓</span></a></div></div>
-<aside class="field-note" aria-label="An invitation to experiment">
-<div class="note-top"><span>Field notes / 001</span><span aria-hidden="true">↗</span></div>
-<svg class="route" viewBox="0 0 310 210" fill="none" aria-hidden="true">
-<path d="M0 35H310M0 70H310M0 105H310M0 140H310M0 175H310M35 0V210M70 0V210M105 0V210M140 0V210M175 0V210M210 0V210M245 0V210M280 0V210" stroke="#dfd5bf"/>
-<path d="M35 172C140 182 45 57 126 65S142 182 207 125S229 49 275 33" stroke="#bd164d" stroke-width="3" stroke-dasharray="7 6"/>
-<circle cx="35" cy="172" r="8" fill="#253e35"/><circle cx="126" cy="65" r="7" fill="#ffc15b" stroke="#282b26" stroke-width="2"/>
-<path d="M265 21L288 28L282 51M216 179L239 146L265 179H216Z" stroke="#253e35" stroke-width="3" stroke-linejoin="round"/>
-<path d="M40 28V48M30 38H50" stroke="#253e35" stroke-width="2"/>
+<figure class="signal-art" aria-label="A pink power symbol sending out ripples: find your signal">
+<svg viewBox="0 0 400 420" fill="none" aria-hidden="true">
+<circle cx="200" cy="205" r="175" stroke="#eadce3"/>
+<circle cx="200" cy="205" r="140" stroke="#eadce3" stroke-dasharray="3 8"/>
+<path d="M200 30A175 175 0 0 1 375 205" stroke="#bd164d" stroke-width="2"/>
+<path d="M60 205A140 140 0 0 0 200 345" stroke="#bd164d" stroke-width="2"/>
+<circle cx="200" cy="205" r="108" fill="#fae9ef"/>
+<path d="M160 144A76 76 0 1 0 240 144" stroke="#bd164d" stroke-width="17" stroke-linecap="round"/>
+<path d="M200 112V195" stroke="#bd164d" stroke-width="17" stroke-linecap="round"/>
+<circle cx="375" cy="205" r="7" fill="#e28332"/>
+<circle cx="101" cy="106" r="6" fill="#bd164d"/>
+<path d="M322 310V330M312 320H332" stroke="#29262b" stroke-width="2"/>
+<path d="M44 64H62M53 55V73" stroke="#29262b" stroke-width="2"/>
+<path d="M62 349L82 329M66 329H82V345" stroke="#bd164d" stroke-width="2"/>
+<text x="200" y="399" text-anchor="middle" fill="#625b62" font-family="monospace" font-size="11" letter-spacing="2">CURIOSITY: ON</text>
 </svg>
-<h2>Follow a question.<br>See where it goes.</h2><p>A useful tool. A new trail. A different way of looking at things.</p>
-</aside></div></section>
+<figcaption>Find your signal.</figcaption>
+</figure></div></section>
 <p class="motto">Stay curious. Find your signal. Enjoy the adventure.</p>
 <section class="lab" id="lab" aria-labelledby="lab-title"><div class="container">
 <p class="label">The Happy Techie Lab</p><div class="lab-intro"><h2 id="lab-title">Big ideas.<br>Small experiments.<br>Real life.</h2><div class="lab-copy">
