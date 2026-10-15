@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Techie — Intelligent Digital Tools for the Wellness World</title>
-<meta name="description" content="We build intelligent digital tools for the wellness and retreat world. Beautiful websites, AI automation, and purposeful technology from the West of Ireland.">
+<title>Happy Techie — Stay curious. Find your signal.</title>
+<meta name="description" content="Curious people, meaningful ideas, practical experiments and a little help making life more fun and fulfilling. Explore Happy Techie and the emerging Happy Techie Lab.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='%23E91E63' stroke-width='8'/><line x1='50' y1='15' x2='50' y2='45' stroke='%23E91E63' stroke-width='8' stroke-linecap='round'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,8 +42,8 @@ body {
 
 /* ---- Animations ---- */
 .fade-in {
-  opacity: 0;
-  transform: translateY(24px);
+  opacity: 1;
+  transform: none;
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 .fade-in.visible {
@@ -445,115 +445,136 @@ footer a:hover { text-decoration: underline; }
   }
   .services-grid { gap: 1.5rem; }
 }
+/* Landing-page refinements: retain the original palette, type and assets. */
+:root { --pink: #C71550; --pink-light: #AD1246; }
+body { font-weight: 400; }
+section { scroll-margin-top: 5rem; }
+nav { background: rgba(255, 252, 249, 0.94); }
+.hero { min-height: 92svh; padding-top: 8rem; padding-bottom: 7rem; }
+.hero-content { max-width: 800px; }
+.hero h1 { font-size: clamp(2.5rem, 6vw, 4.6rem); margin-bottom: 1.5rem; }
+.hero .section-label { font-size: 0.75rem; margin-bottom: 1.25rem; color: var(--pink); }
+.explore-link { display: block; width: fit-content; margin: 1.25rem auto 0; color: var(--text-light); text-underline-offset: 5px; font-size: 0.9rem; }
+.services-grid { grid-template-columns: 1fr; gap: 1.25rem; margin-top: 2.5rem; }
+.service-card { padding: 2rem; }
+.lab-mark { display: block; font: 0.75rem ui-monospace, monospace; color: var(--pink); margin-bottom: 1.5rem; }
+.lab-note { margin-top: 2rem; color: var(--text-light); max-width: 620px; font-size: 0.9rem; }
+.about-text .personal-note { font-size: 0.9rem; border-left: 2px solid var(--pink); padding-left: 1rem; margin-top: 1.5rem; }
+.cta { background: linear-gradient(120deg, #A51145, #C71550); }
+.cta::before, .cta::after { pointer-events: none; }
+.cta .contact-address { font-size: 0.85rem; margin: 1rem auto 0; }
+footer { color: rgba(255,255,255,0.75); }
+a:focus-visible { outline: 3px solid var(--text); outline-offset: 5px; }
+.skip-link { position: fixed; top: -100px; left: 1rem; z-index: 200; background: white; color: var(--text); padding: 0.75rem; }
+.skip-link:focus { top: 1rem; }
+@media (min-width: 600px) { .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.25rem; }
+  nav ul { display: flex; gap: 1rem; }
+  nav ul li:nth-child(2) { display: none; }
+  nav a { font-size: 0.8rem; }
+  .logo-img { height: 28px; max-width: 40vw; object-fit: contain; }
+  .hero { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .about-visual { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
 </style>
 </head>
 <body>
 
-<nav id="nav">
+<a class="skip-link" href="#main">Skip to content</a>
+<nav id="nav" aria-label="Main navigation">
   <a href="#" class="logo"><img src="logo-original.png" alt="Happy Techie" class="logo-img"></a>
   <ul>
-    <li><a href="#services">Services</a></li>
+    <li><a href="#lab">The Lab</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Get in Touch</a></li>
   </ul>
 </nav>
 
-<section class="hero">
-  <div class="hero-orb"></div>
-  <div class="hero-orb"></div>
-  <div class="hero-orb"></div>
-  <div class="hero-orb"></div>
+<main id="main">
+<section class="hero" aria-labelledby="headline">
+  <div class="hero-orb" aria-hidden="true"></div>
+  <div class="hero-orb" aria-hidden="true"></div>
+  <div class="hero-orb" aria-hidden="true"></div>
+  <div class="hero-orb" aria-hidden="true"></div>
   <div class="hero-content">
-    <h1 class="fade-in">Intelligent digital tools for the <span class="highlight">wellness world</span></h1>
-    <p class="tagline fade-in delay-1">Techniques to Thrive</p>
-    <p class="fade-in delay-1">We help retreat centres and wellness practitioners build beautiful, purposeful technology — with a human touch and a quiet bit of AI.</p>
-    <a href="#contact" class="btn fade-in delay-2">Let's talk</a>
+    <p class="section-label">Happy Techie · A work in progress</p>
+    <h1 id="headline">Stay curious.<br><span class="highlight">Find your signal.</span><br>Enjoy the adventure.</h1>
+    <p>Curious people, meaningful ideas, practical experiments and a little help making life more fun and fulfilling.</p>
+    <a href="#contact" class="btn">Interested? Get in touch <span aria-hidden="true">↗</span></a>
+    <a href="#lab" class="explore-link">Explore the Lab <span aria-hidden="true">↓</span></a>
   </div>
 </section>
 
-<section class="services" id="services">
-  <div class="container">
-    <p class="section-label fade-in">What we do</p>
-    <h2 class="section-heading fade-in">Three ways we can help</h2>
-    <p class="section-sub fade-in">Technology should feel like a deep breath, not a headache. We keep things simple, beautiful, and grounded.</p>
+<section class="about" id="about" aria-labelledby="about-title">
+  <div class="container about-inner">
+    <div class="about-visual"><img src="mike-profile.jpg" alt="Mike Hughes, the person behind Happy Techie" class="about-photo" loading="lazy"></div>
+    <div class="about-text">
+      <p class="section-label">About Happy Techie</p>
+      <h2 id="about-title">Good questions.<br>Interesting company.</h2>
+      <p>Happy Techie is an evolving personal project bringing together technology, AI, personal development and a sense of adventure.</p>
+      <p>It’s about using technology, self-awareness and shared experiences to live happier, more meaningful lives.</p>
+      <p>The idea is simple: get together with curious people, explore interesting ideas, try practical techniques and tools, and have some fun along the way.</p>
+      <p class="personal-note">I’m Mike Hughes, exploring from the west coast of Ireland. You’re welcome to join the conversation.</p>
+    </div>
+  </div>
+</section>
 
+<section class="services" id="lab" aria-labelledby="lab-title">
+  <div class="container">
+    <p class="section-label">Introducing the Happy Techie Lab</p>
+    <h2 class="section-heading" id="lab-title">A little space to explore.</h2>
+    <p class="section-sub">A relaxed, informal space for tech-minded people to connect, explore and experiment. Still taking shape — here are a few directions we could go.</p>
     <div class="services-grid">
-      <div class="service-card fade-in delay-1">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <path d="M3 9h18M9 21V9"/>
-          </svg>
-        </div>
-        <h3>Build</h3>
-        <p>Beautiful websites, booking systems, and online course platforms. Designed for how your clients actually think. Clean, fast, and a joy to use.</p>
-      </div>
-
-      <div class="service-card fade-in delay-2">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/>
-            <path d="M16 14H8a4 4 0 0 0-4 4v2h16v-2a4 4 0 0 0-4-4z"/>
-            <circle cx="19" cy="5" r="3"/>
-          </svg>
-        </div>
-        <h3>Automate</h3>
-        <p>AI assistants that handle client intake, booking, follow-up, and content. Your retreat centre gets a concierge that never sleeps — and never feels robotic.</p>
-      </div>
-
-      <div class="service-card fade-in delay-3">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M12 6v6l4 2"/>
-          </svg>
-        </div>
-        <h3>Transform</h3>
-        <p>Custom AI tools for meaning, growth, and deeper engagement. Including PurposePal — our own platform for people doing the inner work.</p>
-      </div>
+      <article class="service-card">
+        <span class="lab-mark" aria-hidden="true">01 / focus</span>
+        <h3>The Inner Game</h3>
+        <p>Awareness, attention, motivation and understanding ourselves. Get curious about what makes us tick.</p>
+      </article>
+      <article class="service-card">
+        <span class="lab-mark" aria-hidden="true">02 / tinker</span>
+        <h3>Tech &amp; AI</h3>
+        <p>Explore new tools and practical ways technology could improve our lives. Try things out and see what helps.</p>
+      </article>
+      <article class="service-card">
+        <span class="lab-mark" aria-hidden="true">03 / venture</span>
+        <h3>Side Quests</h3>
+        <p>Personal challenges, small experiments and adventures. Follow an interest and enjoy where it takes you.</p>
+      </article>
+      <article class="service-card">
+        <span class="lab-mark" aria-hidden="true">04 / connect</span>
+        <h3>Lab Sessions</h3>
+        <p>Small-group conversations, shared learning and encouragement. Bring a question, an idea or a little curiosity.</p>
+      </article>
     </div>
+    <p class="lab-note">Early ideas, open possibilities. The Lab isn’t a scheduled programme — it’s something to shape together.</p>
   </div>
 </section>
 
-<section class="about" id="about">
+<section class="cta" id="contact" aria-labelledby="contact-title">
   <div class="container">
-    <div class="about-inner">
-      <div class="about-visual fade-in"><img src="mike-profile.jpg" alt="Mike Hughes" class="about-photo"></div>
-      <div class="about-text">
-        <p class="section-label fade-in">About</p>
-        <h2 class="fade-in">Built by someone who gets both worlds</h2>
-        <p class="fade-in delay-1">I'm Mike Hughes. I live near Lahinch on the west coast of Ireland. I surf. I meditate. I've spent twenty years building enterprise software — and just as long sitting on a cushion.</p>
-        <p class="fade-in delay-2">By day, I lead national software delivery at Corlann, supporting over 6,000 staff in disability services. By early morning and evening, I build tools for the wellness world — because I believe this space deserves technology made with real care.</p>
-        <p class="fade-in delay-3">My wife is a somatic practitioner and meditation teacher. This isn't an abstract market to me. It's my life. Happy Techie exists because the people doing the most meaningful work often have the worst websites.</p>
-      </div>
-    </div>
+    <h2 id="contact-title">Interested? Get in touch.</h2>
+    <p>Have an idea, a question or a side quest in mind? I’d love to hear what sparks your curiosity.</p>
+    <a href="mailto:mike@happytech.ie" class="btn-light">Say hello <span aria-hidden="true">↗</span></a>
+    <p class="contact-address">mike@happytech.ie</p>
   </div>
 </section>
-
-<section class="cta" id="contact">
-  <div class="container">
-    <h2 class="fade-in">Ready for something better?</h2>
-    <p class="fade-in delay-1">No pitch decks. No jargon. Just a conversation about what you need and whether we're the right fit.</p>
-    <a href="mailto:mike@happytech.ie" class="btn-light fade-in delay-2">mike@happytech.ie</a>
-  </div>
-</section>
+</main>
 
 <footer>
   <p>&copy; 2026 Happy Techie · Lahinch, Co. Clare, Ireland · <a href="mailto:mike@happytech.ie">mike@happytech.ie</a> · <a href="https://www.linkedin.com/in/mikehug/" target="_blank" rel="noopener" title="Mike Hughes on LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-bottom:2px"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></p>
 </footer>
 
 <script>
-// Scroll-triggered fade-in
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-}, { threshold: 0.15 });
-document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
-
 // Nav background on scroll
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
+const updateNav = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+window.addEventListener('scroll', updateNav, { passive: true });
+updateNav();
 </script>
 
 </body>
