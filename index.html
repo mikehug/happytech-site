@@ -46,7 +46,7 @@ h1 span { display:block; color:var(--pink); }
 .btn:hover { background:#98113d; border-color:#98113d; transform:translateY(-2px); }
 .secondary { font-size:.9rem; font-weight:600; }
 .signal-art { margin:0; position:relative; }
-.signal-art svg { width:100%; height:auto; display:block; overflow:visible; }
+.signal-art img { width:100%; height:auto; display:block; }
 .signal-art figcaption { text-align:center; font:.7rem ui-monospace,monospace; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-top:12px; }
 .motto { background:var(--paper); color:var(--pink); padding:20px 24px; text-align:center; font-weight:600; font-size:clamp(.85rem,2vw,1rem); border-block:1px solid var(--line); }
 .lab { --accent:#ffd1df; background-color:var(--dark); background-image:radial-gradient(circle, rgba(255,252,250,.10) .7px, transparent .9px); background-size:7px 7px; color:var(--paper); }
@@ -93,18 +93,8 @@ footer { padding:32px 0; font-size:.8rem; color:var(--muted); } .footer-inner { 
 <p class="hero-sub">Explore new tech. Discover what makes you tick. Get out and do something interesting.</p>
 <p class="audience">For curious people who reckon there’s more to life than the daily grind.</p>
 <div class="actions"><a class="btn" href="mailto:mike@happytech.ie">Help shape the Lab <span aria-hidden="true">↗</span></a><a class="secondary" href="#lab">Explore the Lab <span aria-hidden="true">↓</span></a></div></div>
-<figure class="signal-art" aria-label="A pink path leaves a grey loop at a power symbol and curves into open space">
-<svg viewBox="0 0 400 400" fill="none" aria-hidden="true">
-<!-- Familiar routine, then a deliberate departure into open space. -->
-<path d="M230 222A94 94 0 1 1 219 175" stroke="#d3cbd0" stroke-width="3" stroke-linecap="round"/>
-<path d="M230 222C277 212 301 176 276 144S265 94 304 80S346 57 353 39" stroke="#bd164d" stroke-width="4" stroke-linecap="round"/>
-<path d="M340 46L353 39L359 54" stroke="#bd164d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="230" cy="222" r="33" fill="#fffcfa"/>
-<circle cx="230" cy="222" r="29" fill="#fae9ef"/>
-<path d="M220 208A19 19 0 1 0 240 208" stroke="#bd164d" stroke-width="4.5" stroke-linecap="round"/>
-<path d="M230 201V222" stroke="#bd164d" stroke-width="4.5" stroke-linecap="round"/>
-<text x="136" y="228" text-anchor="middle" fill="#625b62" font-family="Inter, sans-serif" font-size="12">the usual loop</text>
-</svg>
+<figure class="signal-art">
+<img src="hero-signal.png" width="1254" height="1254" alt="A sculptural pink ribbon unfolds from regular folds into an open, winding landscape, with a small orange point nestled along the way." fetchpriority="high">
 <figcaption>Find your signal.</figcaption>
 </figure></div></section>
 <p class="motto">Stay curious. Find your signal. Enjoy the adventure.</p>
